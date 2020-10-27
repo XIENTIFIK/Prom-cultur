@@ -80,21 +80,47 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
-                    Laravel
+                @foreach ($actualites as $actualite)
+                <div class="form-group">
+                <div class="panel-heading">
+                    <div class="panel-body">
+                    <li>{{$actualite->titre}}</li>
+                    <li>{{$actualite->ciontenu}}</li>
+                    <li> <img src="{{asset('storage/' . $actualite->photo)}}" alt="" width="100px" height="100px">
+                    </li>
                 </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
                 </div>
+                </div>
+                @endforeach
+               
             </div>
         </div>
     </body>
 </html>
+
+<link href="{{asset('tes/lib/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
+  <link href="{{asset('tes/lib/animate/animate.min.css')}}" rel="stylesheet">
+  <link href="{{asset('tes/lib/venobox/venobox.css')}}" rel="stylesheet">
+  <link href="{{asset('tes/lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="{{asset('tes/css/style.css')}}" rel="stylesheet">
+  <link href="{{asset('tes/css/bootstrap.min.css')}}" rel="stylesheet">
+
+  @foreach ($actualites as $actualite)
+          <div class="col-lg-4 col-md-6">
+            <div class="speaker">
+            <img src="{{asset('storage/' . $actualite->photo)}}" alt=""  class="img-fluid">
+              <div class="details">
+                <h3><a href="speaker-details.html">{{$actualite->titre}}</a></h3>
+                <p>{{$actualite->contenu}}</p>
+                <div class="social">
+                  <a href=""><i class="fa fa-twitter"></i></a>
+                  <a href=""><i class="fa fa-facebook"></i></a>
+                  <a href=""><i class="fa fa-google-plus"></i></a>
+                  <a href=""><i class="fa fa-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+         @endforeach

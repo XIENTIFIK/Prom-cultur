@@ -3,17 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Actualite;
+use App\Album;
 
-class ActualiteController extends Controller
+class AlbumController extends Controller
 {
-    // public function create(){
-    //     return view('Dashboard.actualite.form_actualite');
-
-    // }
-
     public function create(){
-        return view('Dashboard.actualite.form_actualite');
+        return view('Dashboard.album.form_album');
 
     }
     public function store(Request $request){
@@ -22,9 +17,10 @@ class ActualiteController extends Controller
         // $contenu = $request['contenu'];
         // $photo = $request['photo'];
        
-        $actualites = new Actualite([
+        $album = new Album([
+            'nom'=> $request->get('nom'),
             'titre'=> $request->get('titre'),
-            'contenu'=> $request->get('contenu'),
+            'date'=> $request->get('date'),
             // $image='photo'=>$request('photo')->store('public/images');
             $image='photo' => $request->photo->store('public/images'),
         ]);
@@ -32,54 +28,55 @@ class ActualiteController extends Controller
         // $acteurs->titre = $titre;
         // $acteurs->contenu = $contenu;
         // $image= $photo->$request('photo')->store('public/ima.ges');
-        $actualites->save();
+        $album->save();
 
 
-        return redirect('actualite_liste');
+        return redirect('album_liste');
         
     }
     public function liste() {
-        $actualites= Actualite::all();
- 
-        return view('Dashboard.actualite.actualite_liste',[
-             'actualites'=>$actualites 
+        $albums= Album::all();
+        return view('Dashboard.album.album_liste',[
+             'albums'=>$albums
  
         ]);
     }
     public function show($id){
-        $actualites = Actualite::where('id' ,$id)->first();
-        return view('Dashboard.actualite.actualite_details' , ['actualite'=> $actualites]);
+        $albums = Album::where('id' ,$id)->first();
+        return view('Dashboard.album.album_details' , ['album'=> $albums]);
     }
 
     public function edit($id){
-        $actualites = Actualite::where('id',$id)->first();
-        return view('Dashboard.actualite.actualite_modifier',['actualite'=>$actualites]);
+        $albums = Album::where('id',$id)->first();
+        return view('Dashboard.album.album_modifier',['album'=>$albums]);
     }
 
     public function update(Request $request, $id){
+        $nom = $request['nom'];
         $titre = $request['titre'];
-        $contenu = $request['contenu'];
+        $date = $request['date'];
         // $email = $request['email'];
         // $telephone = $request['telephone'];
         // $profession = $request['profession'];
 
         
-        $actualites = Actualite::find($id);
-        $actualites->titre = $titre;
-        $actualites->contenu =$contenu;
+        $albums = Album::find($id);
+        $albums->nom = $nom;
+        $albums->titre = $titre;
+        $albums->date =$date;
         // $acteurs->email = $email;
         // $acteurs->telephone = $telephone;
         // $acteurs->profession = $profession;
-        $actualites->update();
+        $albums->update();
         
-        return redirect('actualite_liste');
+        return redirect('album_liste');
      }
 
 
     
     public function affiche(){
-        $actualites = Actualite::all();
-        return view('pages.actualite',compact('actualites'));
+        $albums = Album::all();
+        return view('pages.album',compact('albums'));
     }
 
     public function destroy($id) {
@@ -88,5 +85,4 @@ class ActualiteController extends Controller
         
         return redirect()->back();
     }
-
 }

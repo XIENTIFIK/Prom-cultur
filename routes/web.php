@@ -13,15 +13,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', function () {
+    return view('pages.acceuil');
+});
+
 Route::get('dashboard', function () {
     return view('Dashboard.index');
 });
 
-Route::get('one', function () {
-    return view('one-music-gh-pages.event');
-});
 
-Route::get('/','ActualiteController@affiche');
+
+
+// Route::get('deux', function () {
+//     return view('pages.album');
+// });
+
+
+
+
 
                  //partie acteur
 Route::get('form_acteur', 'ActeurController@create')->name('form_acteur');
@@ -51,6 +60,17 @@ Route::post('spectacle_modifier/{id}' , 'SpectacleController@update')->name('spe
 Route::get('spectacle_delete/{id}', 'SpectacleController@destroy')->name('spectacle_delete');
 
 
+//Partie album
+Route::get('form_album', 'AlbumController@create')->name('form_album');
+Route::post('form_album', 'AlbumController@store')->name('enregistrer_album');
+Route::get('album_liste', 'AlbumController@liste')->name('album_liste');
+Route::get('album_detail/{id}' , 'AlbumController@show')->name('album_detail');
+Route::get('album_modifier/{id}' , 'AlbumController@edit')->name('album_modifier');
+Route::post('album_modifier/{id}' , 'AlbumController@update')->name('album_modifier');
+Route::get('album_delete/{id}', 'AlbumController@destroy')->name('album_delete');
 
 
-Route::get('event', 'actualiteController@create')->name('event');
+// Patie Affiche
+Route::get('album','AlbumController@affiche')->name('album');
+Route::get('event','SpectacleController@affiche')->name('event');
+Route::get('actualite','ActualiteController@affiche')->name('actualite');

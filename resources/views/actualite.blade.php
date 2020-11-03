@@ -136,7 +136,7 @@
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="single-event-area mb-30">
                         <div class="event-thumbnail">
-                        <img src="{{asset('storage/' . $actualite->photo)}}" alt=""  class="img-fluid">
+                        <img src="{{asset('storage/' . $actualite->photo)}}" alt="" height="50hv"  class="img-fluid">
                         </div>
                         <div class="event-text">
                         <h3><a href="speaker-details.html">{{$actualite->titre}}</a></h3>

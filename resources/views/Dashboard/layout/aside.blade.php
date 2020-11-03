@@ -18,6 +18,7 @@
             <ul class="sub">
               <li><a class="" href=" {{route('form_acteur')}} ">Enregistrer acteur</a></li>
               <li><a class="" href="{{route('form_actualite')}}">Enregistrer actualite</a></li>
+              <li><a class="" href=" {{route('form_album')}} ">Enregistrer album</a></li>
               <li><a class="" href="{{route('form_spectacle')}}">Enregistrer spectacle</a></li>
             </ul>
           </li>

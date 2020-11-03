@@ -9,7 +9,7 @@ use App\Spectacle;
 class SpectacleController extends Controller
 {
     public function create(){
-        return view('Dashboard.spectacle .spectacle.form_spectacle');
+        return view('Dashboard.spectacle.form_spectacle');
 
     }
     public function store(Request $request){
@@ -19,6 +19,9 @@ class SpectacleController extends Controller
             'contenu'=> $request->get('contenu'),
             // $image='photo'=>$request('photo')->store('public/images');
             $image='photo' => $request->photo->store('public/images'),
+            'lieu'=> $request->get('lieu'),
+            'date'=> $request->get('date'),
+
         ]);
         $spectacles->save();
 
@@ -29,24 +32,26 @@ class SpectacleController extends Controller
     public function liste() {
         $spectacles= Spectacle::all();
  
-        return view('Dashboard.spectacle .spectacle_liste',[
+        return view('Dashboard.spectacle.spectacle_liste',[
              'spectacles'=>$spectacles 
  
         ]);
     }
     public function show($id){
         $spectacles = Spectacle::where('id' ,$id)->first();
-        return view('Dashboard.spectacle .spectacle_details' , ['spectacle'=> $spectacles]);
+        return view('Dashboard.spectacle.spectacle_details' , ['spectacle'=> $spectacles]);
     }
 
     public function edit($id){
         $spectacles = Spectacle::where('id',$id)->first();
-        return view('Dashboard.spectacle .spectacle_modifier',['spectacle'=>$spectacles]);
+        return view('Dashboard.spectacle.spectacle_modifier',['spectacle'=>$spectacles]);
     }
 
     public function update(Request $request, $id){
         $titre = $request['titre'];
         $contenu = $request['contenu'];
+        $lieu = $request['lieu'];
+        $date = $request['date'];
         // $email = $request['email'];
         // $telephone = $request['telephone'];
         // $profession = $request['profession'];
@@ -55,6 +60,8 @@ class SpectacleController extends Controller
         $spectacles = Spectacle::find($id);
         $spectacles->titre = $titre;
         $spectacles->contenu =$contenu;
+        $spectacles->lieu = $lieu;
+        $spectacles->date = $date;
         // $acteurs->email = $email;
         // $acteurs->telephone = $telephone;
         // $acteurs->profession = $profession;
@@ -67,8 +74,13 @@ class SpectacleController extends Controller
     
     public function affiche(){
         $spectacles = Spectacle::all();
-        return view('welcome',compact('spectacles'));
+        return view('pages.event',compact('spectacles'));
     }
+
+     // public function affiche(){
+    //     $actualites = Actualite::all();
+    //     return view('',compact('actualites'));
+    // }
 
     public function destroy($id) {
 

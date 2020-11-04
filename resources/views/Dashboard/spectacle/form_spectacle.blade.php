@@ -30,13 +30,13 @@
                     <div class="form-group ">
                       <label for="cname" class="control-label col-lg-2">Titre<span class="required"></span></label>
                       <div class="col-lg-10">
-                        <input class="form-control" id="cname" name="titre" minlength="5" type="text" required />
+                        <input class="form-control" id="cname" name="titre" minlength="5" type="contenu" required />
                       </div>
                     </div>
                     <div class="form-group ">
-                      <label for="text" class="control-label col-lg-2">Contenu <span class="required"></span></label>
+                      <label for="contenu" class="control-label col-lg-2">Contenu <span class="required"></span></label>
                       <div class="col-lg-10">
-                        <input class="form-control " id="text" type="text" name="message" required />
+                        <input class="form-control " id="contenu" type="contenu" name="contenu" required />
                       </div>
                     </div>
                     <div class="form-group ">

@@ -22,7 +22,10 @@
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="single-event-area mb-30">
                         <div class="event-thumbnail">
+                        <a href="{{asset('storage/' . $spectacle->photo)}}" class="venobox" data-gall="venue-gallery">
                         <img src="{{asset('storage/' . $spectacle->photo)}}" alt="" height="50hv"  class="img-fluid">
+              </a>
+                        
                         </div>
                         <div class="event-text">
                         <h3><a href="speaker-details.html">{{$spectacle->titre}}</a></h3>

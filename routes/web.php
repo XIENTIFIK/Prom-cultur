@@ -13,9 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('pages.acceuil');
-});
+
+
+
+
+
+Route::get('/', 'AcceuilController@affiche')->name('acceuil');
 
 Route::get('dashboard', function () {
     return view('Dashboard.index');
@@ -71,6 +74,6 @@ Route::get('album_delete/{id}', 'AlbumController@destroy')->name('album_delete')
 
 
 // Patie Affiche
-Route::get('album','AlbumController@affiche')->name('album');
-Route::get('event','SpectacleController@affiche')->name('event');
-Route::get('actualite','ActualiteController@affiche')->name('actualite');
+Route::get('album','AlbumController@affiche_album')->name('album');
+Route::get('event','SpectacleController@affiche_spectacle')->name('event');
+Route::get('actualite','ActualiteController@affiche_actualite')->name('actualite');

@@ -74,7 +74,7 @@ class AlbumController extends Controller
 
 
     
-    public function affiche(){
+    public function affiche_album(){
         $albums = Album::all();
         return view('pages.album',compact('albums'));
     }

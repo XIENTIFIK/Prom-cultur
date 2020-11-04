@@ -72,7 +72,7 @@ class SpectacleController extends Controller
 
 
     
-    public function affiche(){
+    public function affiche_spectacle(){
         $spectacles = Spectacle::all();
         return view('pages.event',compact('spectacles'));
     }

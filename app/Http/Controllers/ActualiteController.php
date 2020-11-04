@@ -77,7 +77,7 @@ class ActualiteController extends Controller
 
 
     
-    public function affiche(){
+    public function affiche_actualite(){
         $actualites = Actualite::all();
         return view('pages.actualite',compact('actualites'));
     }

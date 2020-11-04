@@ -56,7 +56,9 @@
                 @foreach ($albums as $album)
                 <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
                     <div class="single-album">
-                    <img src="{{asset('storage/' . $album->photo)}}" alt="" width="100px" height="100px">
+                    <a href="{{asset('storage/' . $album->photo)}}" class="venobox" data-gall="venue-gallery">
+                        <img src="{{asset('storage/' . $album->photo)}}" alt="" height="50hv"  class="img-fluid" width="100px" height="100px">
+                    </a> 
                         <div class="album-info">
                             <a href="#">
                                 <h5>{{$album->nom}}</h5>

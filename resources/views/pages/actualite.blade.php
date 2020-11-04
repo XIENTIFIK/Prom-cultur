@@ -20,35 +20,39 @@
     <div class="blog-area section-padding-100">
         <div class="container">
             <div class="row">
-            @foreach ($actualites as $actualite)
                 <div class="col-12 col-lg-9">
-
+                @foreach ($actualites as $actualite)
                
                     <!-- Single Post Start -->
                     <div class="single-blog-post mb-100 wow fadeInUp" data-wow-delay="100ms">
                         <!-- Post Thumb -->
                         <div class="blog-post-thumb mt-30">
-                           <img src="{{asset('storage/' . $actualite->photo)}}" alt="" height="50hv"  class="img-fluid">
+                        <a href="{{asset('storage/' . $actualite->photo)}}" class="venobox" data-gall="venue-gallery">
+                        <img src="{{asset('storage/' . $actualite->photo)}}" alt=""   class="img-fluid" width="50%" >
+                        </a> 
                             <!-- Post Date -->
                             <div class="post-date">
                                 <span>15</span>
                                 <span>June ‘18</span>
                             </div>
                         </div>
-                        <h3><a href="speaker-details.html">{{$actualite->titre}}</a></h3>
                         <!-- Blog Content -->
                         <div class="blog-content">
                             <!-- Post Title -->
-                            <p>{{$actualite->contenu}}</p>
+                          <h3 class="post-title">{{$actualite->titre}}</h3>
                             <!-- Post Meta -->
+
+                            <div><p>{{$actualite->contenu}}</p> </div>
                             <div class="post-meta d-flex mb-30">
+                            
+                            <div>
                                 <p class="post-author">By<a href="#"> Admin</a></p>
                                 <p class="tags">in<a href="#"> Events</a></p>
                                 <p class="tags"><a href="#">2 Comments</a></p>
                             </div>
                             <!-- Post Excerpt -->
-                            <p>Pellentesque sit amet velit a libero viverra porta non eu justo. Vivamus mollis metus sem, ac sodales dui lobortis. Pellentesque sit amet velit a libero viverra porta non eu justo. Vivamus mollis metus sem, ac sodales dui lobortis.</p>
-                        </div>
+                                
+                    </div>
                     </div>
                     @endforeach
                     <!-- Single Post Start -->
@@ -66,7 +70,7 @@
                         <!-- Blog Content -->
                         <div class="blog-content">
                             <!-- Post Title -->
-                            <a href="#" class="post-title">5 Festivals you shouldn’t miss this summer</a>
+                          
                             <!-- Post Meta -->
                             <div class="post-meta d-flex mb-30">
                                 <p class="post-author">By<a href="#"> Admin</a></p>
